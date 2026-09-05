@@ -1,9 +1,6 @@
 #!/bin/bash
 #################################################################################
-# Octagon Policy Editor
-# Heavily based off of Pollen Policy Editor and Pentagon Policy Editor
-# https://github.com/MercuryWorkshop/Pollen/
-# https://github.com/NonagonWorkshop/Pentagon-Policy-Editor/
+# Octagon Policy Editor (BETA MODE)
 #################################################################################
 clear
 
@@ -17,36 +14,18 @@ cat << "BANNER"
   0  0 0      T   A  A G   G 0  0  N   NN
    000  000   T   A  A  GGG   000  N    N
 
-          POLICY EDITOR
+          POLICY EDITOR BETA MODE
 
-Heavily based off of:
-   Pollen Policy Editor
-    https://github.com/MercuryWorkshop/Pollen/
-   Pentagon Policy Editor
-    https://github.com/NonagonWorkshop/Pentagon-Policy-Editor/
-
-Made by GamerRyker and StarkMist111960
-Combines the best of Polygon and Pentagon
-
- Default force-installed extensions: (GoGuardian, GoGuardian License, Snap&Read, CoWriter, Read&Write)
+Courtesy of: GamerRyker and StarkMist111960. For lasdhq. Enjoy!
 
 BANNER
 
-read -p 'Extension URLs: ' EXTENSION_LIST
-
-if [[ -z "$EXTENSION_LIST" ]]; then 
-    EXTENSION_LIST='"haldlgldplgnggkjaafhelgiaglafanh;https://goguardian.com/ext/m.xml","jjfeehgdeghiknkilcildnjofkcndjcm;https://goguardian.com/licenses/update.php","mloajfnmjckfjbeeofcdaecbelnblden;https://clients2.google.com/service/update2/crx","ifajfiofeifbbhbionejdliodenmecna;https://clients2.google.com/service/update2/crx","inoeonmfapjbbkmdafoankkfajkcphgd;https://clients2.google.com/service/update2/crx"'
-fi
-
-EXT_LIST="$EXTENSION_LIST"
-
 mkdir -p /etc/opt/chrome/policies/managed
 
-cat > /etc/opt/chrome/policies/managed/octagon.json << EOF
+cat > /etc/opt/chrome/policies/managed/octagon.json << 'EOF'
 {
   "SecondaryGoogleAccountSigninAllowed": true,
   "URLBlocklist": [],
-  "SystemFeaturesDisableList": [],
   "EditBookmarksEnabled": true,
   "ChromeOsMultiProfileUserBehavior": "unrestricted",
   "DeveloperToolsAvailability": 1,
@@ -55,12 +34,11 @@ cat > /etc/opt/chrome/policies/managed/octagon.json << EOF
   "DefaultPopupsSetting": 1,
   "AllowDeletingBrowserHistory": true,
   "AllowDinosaurEasterEgg": true,
+  "ExtensionInstallBlocklist": null,
   "IncognitoModeAvailability": 0,
   "AllowScreenLock": true,
   "ExtensionAllowedTypes": null,
-  "ExtensionInstallAllowlist": null,
   "ExtensionInstallBlocklist": null,
-  "ExtensionInstallForcelist": [$EXTENSION_LIST],
   "ExtensionSettings": null,
   "ChromeOsLockOnIdleSuspend": false,
   "PasswordManagerEnabled": true,
@@ -73,28 +51,19 @@ cat > /etc/opt/chrome/policies/managed/octagon.json << EOF
   "ForceYouTubeRestrict": 0,
   "EasyUnlockAllowed": true,
   "DisableSafeBrowsingProceedAnyway": false,
-  "DeviceAllowNewUsers": true,
-  "DevicePowerAdaptiveChargingEnabled": true,
-  "DeviceGuestModeEnabled": true,
-  "BrowserGuestModeEnabled": true,
-  "DeviceUnaffiliatedCrostiniAllowed": true,
   "VirtualMachinesAllowed": true,
   "CrostiniAllowed": true,
-  "DefaultCookiesSetting": 1,
   "VmManagementCliAllowed": true,
+  "UserBorealisAllowed": true,
+  "DefaultCookiesSetting": 1,
   "WifiSyncAndroidAllowed": true,
   "DeveloperToolsDisabled": false,
-  "DeviceBlockDevmode": false,
-  "UserBorealisAllowed": true,
-  "InstantTetheringAllowed": true,
   "NearbyShareAllowed": true,
-  "PinnedLauncherApps": null,
+  "InstantTetheringAllowed": true,
   "PrintingEnabled": true,
-  "DeviceReportNetworkEvents": false,
   "SmartLockSigninAllowed": true,
   "PhoneHubAllowed": true,
   "LacrosAvailability": "user_choice",
-  "WallpaperImage": null,
   "ArcEnabled": true,
   "ArcPolicy": {
     "applications": [],
@@ -106,11 +75,9 @@ cat > /etc/opt/chrome/policies/managed/octagon.json << EOF
       "softwareInfoEnabled": true
     }
   },
-  
   "DeviceAutoUpdateTimeRestrictions": [],
   "DnsOverHttpsMode": "automatic",
   "BrowserLabsEnabled": true,
-  "ChromeOsReleaseChannelDelegated": true,
   "SafeSitesFilterBehavior": 0,
   "SafeBrowsingProtectionLevel": 0,
   "DownloadRestrictions": 0,
@@ -119,20 +86,15 @@ cat > /etc/opt/chrome/policies/managed/octagon.json << EOF
   "NetworkThrottlingEnabled": false,
   "NetworkPredictionOptions": 0,
   "AllowedDomainsForApps": "",
-  "DeviceUserAllowlist": "",
-  "DeviceAllowNewUser": 3
-  "SystemFeaturesDisableList": []
+  "SystemFeaturesDisableList": [],
+  "ReportAppInventory": [],
+  "ReportAppUsage": []
 }
 EOF
 
 cat << SUCCESS
 
 [✓] Policies configured successfully!
-
-Extensions force-installed:
-$EXT_LIST
-
-User policies modified successfully!
 
 Done! Policies have been applied.
 Visit chrome://policy and reload your policies
