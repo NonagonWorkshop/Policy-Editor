@@ -1,7 +1,7 @@
 
-# Octagon Policy Editor
+# Octagon Policy Editor Beta
 
-Welcome to Octagon Policy Editor!
+Welcome to Octagon Policy Editor Beta!
 Octagon Policy Editor is a recreation of Pollen, Pentagon, and Polygon. This allows you to force install extensions to your liking, and if you are doing this to modify account policies, like on a school account, you can keep gogaurdian. 
 
 
