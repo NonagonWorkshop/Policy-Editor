@@ -16,7 +16,7 @@ Step 3: Login as root
 Step 4: Execute the Octagon Policy Editor Command:
 
 ```
-curl -Ls https://raw.githubusercontent.com/NonagonWorkshop/Octagon-Policy-Editor/main/octagon.sh | bash
+curl -Ls https://raw.githubusercontent.com/NonagonWorkshop/Policy-Editor/main/octagon.sh | bash
 ```
 
 NOTE: This is only temporary and the Policy Editor will go away on your next Restart / Reboot (sudo reboot)! 
@@ -33,7 +33,7 @@ Step 3: Login is as root
 Step 4: Execute the Octagon RootFS Command:
 
 ```
-curl -Ls https://raw.githubusercontent.com/NonagonWorkshop/Octagon-Policy-Editor/main/rootfs.sh | bash
+curl -Ls https://raw.githubusercontent.com/NonagonWorkshop/Policy-Editor/main/rootfs.sh | bash
 ```
 
 Some octagon set policies are being superseded by other policies and are changing the ones octagon updated to the normal default-enterprise enforced ones. What do I do?
